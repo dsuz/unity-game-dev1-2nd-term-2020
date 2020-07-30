@@ -14,8 +14,7 @@ public class EnemyController : MonoBehaviour
             Destroy(collision.gameObject);  // 弾のオブジェクトを破棄する
             Destroy(this.gameObject);       // そして自分も破棄する
             /* ============
-             * 注意: 上の２行の順番を入れ替えると挙動が変わる。
-             * どのように挙動が変わるのかを確認し、なぜなのかを理解しておくこと。
+             * 注意: このタイミングで音を鳴らす時は注意が必要です。          
              * ============ */
         }
     }

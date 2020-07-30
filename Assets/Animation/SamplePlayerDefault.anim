@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SampleEnemy
+  m_Name: SamplePlayerDefault
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,16 +20,16 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -6063193139565258881, guid: 07fa4a9616a73f34785703310e3f094b,
+      value: {fileID: 7851470227991654557, guid: 07fa4a9616a73f34785703310e3f094b,
         type: 3}
     - time: 0.083333336
-      value: {fileID: -4226801132454971062, guid: 07fa4a9616a73f34785703310e3f094b,
+      value: {fileID: 5680876330281301099, guid: 07fa4a9616a73f34785703310e3f094b,
         type: 3}
     - time: 0.16666667
-      value: {fileID: -4719210468415323688, guid: 07fa4a9616a73f34785703310e3f094b,
+      value: {fileID: -5200398357143456989, guid: 07fa4a9616a73f34785703310e3f094b,
         type: 3}
     - time: 0.25
-      value: {fileID: 1621602422534783532, guid: 07fa4a9616a73f34785703310e3f094b,
+      value: {fileID: -8545040120222676414, guid: 07fa4a9616a73f34785703310e3f094b,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -50,10 +50,10 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -6063193139565258881, guid: 07fa4a9616a73f34785703310e3f094b, type: 3}
-    - {fileID: -4226801132454971062, guid: 07fa4a9616a73f34785703310e3f094b, type: 3}
-    - {fileID: -4719210468415323688, guid: 07fa4a9616a73f34785703310e3f094b, type: 3}
-    - {fileID: 1621602422534783532, guid: 07fa4a9616a73f34785703310e3f094b, type: 3}
+    - {fileID: 7851470227991654557, guid: 07fa4a9616a73f34785703310e3f094b, type: 3}
+    - {fileID: 5680876330281301099, guid: 07fa4a9616a73f34785703310e3f094b, type: 3}
+    - {fileID: -5200398357143456989, guid: 07fa4a9616a73f34785703310e3f094b, type: 3}
+    - {fileID: -8545040120222676414, guid: 07fa4a9616a73f34785703310e3f094b, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
