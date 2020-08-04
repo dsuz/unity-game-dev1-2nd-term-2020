@@ -17,10 +17,12 @@ public class SpaceShipController : MonoBehaviour
     /// <summary>一画面の最大段数 (0 = 無制限)</summary>
     [SerializeField, Range(0, 10)] int m_bulletLimit = 0;
     Rigidbody2D m_rb;
+    Animator m_anim;
 
     void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
+        m_anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -52,6 +54,7 @@ public class SpaceShipController : MonoBehaviour
         {
             GameObject go = Instantiate(m_bulletPrefab, m_muzzle.position, m_bulletPrefab.transform.rotation);  // インスペクターから設定した m_bulletPrefab をインスタンス化する
             go.transform.SetParent(this.transform);
+            m_anim.Play("Fire");    // Animator Controller 内の State 名を指定して Motion を再生する
         }
     }
 }
