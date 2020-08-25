@@ -181,11 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44258916db9e9284583826b96b6d5385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_enemyBulletPrefab: {fileID: 5724366707387613975, guid: 3badb8bcd778e0341b476fc744f3451c,
-    type: 3}
-  m_fireInterval: 1.5
-  m_explosionPrefab: {fileID: 630570231415656745, guid: 3c420c67929f8d04cb695b867334b23a,
-    type: 3}
 --- !u!114 &2613607370886633654
 MonoBehaviour:
   m_ObjectHideFlags: 0

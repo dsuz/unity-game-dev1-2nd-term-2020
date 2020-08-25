@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class EnemyGenerator : MonoBehaviour
 {
-    [SerializeField] GameObject m_enemyPrefab;
+    [SerializeField] GameObject m_enemyPrefab = null;
     [SerializeField, Range(0.1f, 1f)] float m_interval = 0.25f;
     float m_timer;
 
