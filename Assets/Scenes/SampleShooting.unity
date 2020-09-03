@@ -452,11 +452,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a98e02df0870244a98fbb7af6bfe8df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_godMode: 0
   m_moveSpeed: 5
   m_bulletPrefab: {fileID: 6199124053888588220, guid: 661fbacc11421704386ae43cf622576d,
     type: 3}
   m_muzzle: {fileID: 1910572118}
   m_bulletLimit: 2
+  m_explosionEffect: {fileID: 630570231415656745, guid: 3c420c67929f8d04cb695b867334b23a,
+    type: 3}
 --- !u!50 &734010408
 Rigidbody2D:
   serializedVersion: 4
@@ -491,9 +494,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.12}
   serializedVersion: 2
-  m_Radius: 0.48
+  m_Radius: 0.14
 --- !u!1 &1492879740
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +582,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -99
   m_Sprite: {fileID: 21300000, guid: 66fe11f725b837749ac462f952980d12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -815,6 +818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2104140158}
   - component: {fileID: 2104140159}
+  - component: {fileID: 2104140160}
   m_Layer: 0
   m_Name: EnemyGenerator
   m_TagString: Untagged
@@ -830,7 +834,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104140157}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.58, y: 5.42, z: 0}
+  m_LocalPosition: {x: 0, y: 5.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -843,11 +847,32 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104140157}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e61d0db05c58c254982e68e657b79585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_enemyPrefab: {fileID: 378552942956850385, guid: 0adea174c3dd1ac4d875bc969a67e331,
+  m_enemyPrefab: {fileID: 1624364783828408707, guid: 86ac37e0920d406479e82e54b3066fba,
     type: 3}
   m_interval: 1
+--- !u!114 &2104140160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104140157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3580a91c3418894188225559b4d22cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_enemyPrefabs:
+  - {fileID: 2468891866766991628, guid: 03af4c11eed1f3d4086d79eff13b6797, type: 3}
+  - {fileID: 5165246576192513097, guid: 9ff4576a14459b2479be058d2413fcde, type: 3}
+  - {fileID: 8440005383247193987, guid: 9a4a0c565b7013c4a951c806f9dc5d74, type: 3}
+  m_bossPrefab: {fileID: 1624364783828408707, guid: 86ac37e0920d406479e82e54b3066fba,
+    type: 3}
+  m_spawnPoint: {fileID: 2104140158}
+  m_spawnIntervalInWave: 3
+  m_spawnTimesInWave: 3

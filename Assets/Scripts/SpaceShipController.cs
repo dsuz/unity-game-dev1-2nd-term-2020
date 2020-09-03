@@ -8,6 +8,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))] // Rigidbody コンポーネントのアタッチを強制する
 public class SpaceShipController : MonoBehaviour
 {
+    /// <summary>無敵モード</summary>
+    [SerializeField] bool m_godMode = false;
     /// <summary>プレイヤーの移動速度</summary>
     [SerializeField] float m_moveSpeed = 5f;
     /// <summary>弾のプレハブ</summary>
@@ -16,6 +18,8 @@ public class SpaceShipController : MonoBehaviour
     [SerializeField] Transform m_muzzle = null;
     /// <summary>一画面の最大段数 (0 = 無制限)</summary>
     [SerializeField, Range(0, 10)] int m_bulletLimit = 0;
+    /// <summary>やられた時の爆発エフェクト</summary>
+    [SerializeField] GameObject m_explosionEffect = null;
     Rigidbody2D m_rb;
     Animator m_anim;
 
@@ -55,6 +59,29 @@ public class SpaceShipController : MonoBehaviour
             GameObject go = Instantiate(m_bulletPrefab, m_muzzle.position, m_bulletPrefab.transform.rotation);  // インスペクターから設定した m_bulletPrefab をインスタンス化する
             go.transform.SetParent(this.transform);
             m_anim.Play("Fire");    // Animator Controller 内の State 名を指定して Motion を再生する
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        // 敵か敵の発射する弾に接触したら、やられる
+        if (collision.gameObject.tag == "EnemyTag" || collision.gameObject.tag == "EnemyBulletTag")
+        {
+            // 無敵モードの時は console にログだけ出す
+            if (m_godMode)
+            {
+                Debug.Log("Hit by " + collision.gameObject.name);
+            }
+            else
+            {
+                // 爆発エフェクトを生成する
+                if (m_explosionEffect)
+                {
+                    GameObject go = Instantiate(m_explosionEffect);
+                    go.transform.position = this.transform.position;
+                }
+                Destroy(this.gameObject);   // 自分を破棄する
+            }
         }
     }
 }
