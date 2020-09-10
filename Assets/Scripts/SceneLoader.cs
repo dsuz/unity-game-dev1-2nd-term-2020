@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;      // UI を操作するために追加している
+using UnityEngine.SceneManagement;  // シーン遷移を行うために追加している
 
 public class SceneLoader : MonoBehaviour
 {

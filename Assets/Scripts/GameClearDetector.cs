@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;  // シーン遷移を行うために追加している
 
 /// <summary>
 /// このオブジェクトが破棄されたことをもってゲームクリアとして、シーンをロードする

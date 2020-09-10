@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UI;   // UI を操作するために追加している
 
 /// <summary>
 /// 残機表示を行うコンポーネント
@@ -22,25 +22,28 @@ public class PlayerCounter : MonoBehaviour
     /// <param name="playerCount">残機数</param>
     public void Refresh(int playerCount)
     {
-        // 子オブジェクトをすべて削除する
-        foreach (Transform t in m_playerCounterPanel.transform)
+        if (m_playerUiSprite && m_playerCounterPanel)
         {
-            Destroy(t.gameObject);
-        }
+            // 子オブジェクトをすべて削除する
+            foreach (Transform t in m_playerCounterPanel.transform)
+            {
+                Destroy(t.gameObject);
+            }
 
-        // 残機数だけスプライトをパネルの子オブジェクトとして生成する
-        for (int i = 0; i < playerCount - 1; i++)
-        {
-            // Image を作る
-            GameObject go = new GameObject();
-            Image image = go.AddComponent<Image>();
-            // Sprite をアサインする
-            image.sprite = m_playerUiSprite;
-            // サイズを変える
-            RectTransform rect = go.GetComponent<RectTransform>();
-            rect.sizeDelta = m_spriteSize;
-            // パネルの子オブジェクトにする
-            go.transform.SetParent(m_playerCounterPanel.transform);
+            // 残機数だけスプライトをパネルの子オブジェクトとして生成する
+            for (int i = 0; i < playerCount - 1; i++)
+            {
+                // Image を作る
+                GameObject go = new GameObject();
+                Image image = go.AddComponent<Image>();
+                // Sprite をアサインする
+                image.sprite = m_playerUiSprite;
+                // サイズを変える
+                RectTransform rect = go.GetComponent<RectTransform>();
+                rect.sizeDelta = m_spriteSize;
+                // パネルの子オブジェクトにする
+                go.transform.SetParent(m_playerCounterPanel.transform);
+            }
         }
     }
 }

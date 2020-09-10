@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UI;   // UI を操作するために追加している
 
 /// <summary>
 /// ゲーム全体を管理するクラス。
@@ -38,7 +38,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // ゲームオーバーの表示を消す
-        m_gameoverText.enabled = false;
+        if (m_gameoverText)
+        {
+            m_gameoverText.enabled = false;
+        }
 
         // EnemyGenerator を取得しておき、まずは敵の生成を止めておく
         m_enemyGenerator = GetComponent<EnemyWaveGenerator>();
@@ -87,7 +90,6 @@ public class GameManager : MonoBehaviour
                     }
                     else
                     {
-
                         GameOver(); // 残機がもうない場合はゲームオーバーにする
                     }
                 }
@@ -145,7 +147,10 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         Debug.Log("Game over. Load scene.");
-        m_sceneLoader.LoadScene();
+        if (m_sceneLoader)
+        {
+            m_sceneLoader.LoadScene();
+        }
     }
 }
 
