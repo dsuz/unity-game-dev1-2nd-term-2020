@@ -80,6 +80,14 @@ public class SpaceShipController : MonoBehaviour
                     GameObject go = Instantiate(m_explosionEffect);
                     go.transform.position = this.transform.position;
                 }
+
+                // GameManager にやられたことを知らせる
+                GameManager gm = GameObject.FindObjectOfType<GameManager>();
+                if (gm)
+                {
+                    gm.PlayerDead();
+                }
+
                 Destroy(this.gameObject);   // 自分を破棄する
             }
         }

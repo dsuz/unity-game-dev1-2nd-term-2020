@@ -24,17 +24,22 @@ public class EnemyWaveGenerator : MonoBehaviour
     [SerializeField] float m_spawnIntervalInWave = 2f;
     /// <summary>１ウェーブ内での敵プレハブを生成する回数</summary>
     [SerializeField] int m_spawnTimesInWave = 5;
+    /// <summary>敵生成中フラグ</summary>
+    [SerializeField] bool m_isWorking = false;
     /// <summary>m_enemyPrefabs の添字</summary>
     int m_index;
     /// <summary>１ウェーブ内で敵プレハブを生成した回数を数えるためのカウンタ変数</summary>
     int m_spawnCounter;
     /// <summary>１ウェーブ内での m_spawnIntervalInWave をカウントするためのカウンター</summary>
     float m_timer;
-    /// <summary>ボスが生成済みか判定するフラ部</summary>
+    /// <summary>ボスが生成済みか判定するフラグ</summary>
     bool m_isBossSpawned;
 
     void Update()
     {
+        // 停止中の場合は何もしない
+        if (!m_isWorking) return;
+
         // ボスを生成した後は何もしない
         if (m_isBossSpawned)
         {
@@ -84,5 +89,21 @@ public class EnemyWaveGenerator : MonoBehaviour
                 Debug.LogFormat("m_index: {0}", m_index);
             }
         }
+    }
+
+    /// <summary>
+    /// 敵の生成を止める
+    /// </summary>
+    public void StopGeneration()
+    {
+        m_isWorking = false;
+    }
+
+    /// <summary>
+    /// 敵の生成を始める
+    /// </summary>
+    public void StartGeneration()
+    {
+        m_isWorking = true;
     }
 }

@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
 {
     /// <summary>敵のライフ</summary>
     [SerializeField] int m_life = 1;
+    /// <summary>敵を倒すと加算される得点</summary>
+    [SerializeField] int m_score = 100;
     /// <summary>敵の弾のプレハブ</summary>
     [SerializeField] GameObject m_enemyBulletPrefab = null;
     /// <summary>敵が弾を発射する間隔（秒）</summary>
@@ -62,6 +64,14 @@ public class EnemyController : MonoBehaviour
                 {
                     Instantiate(m_explosionPrefab, this.transform.position, m_explosionPrefab.transform.rotation);
                 }
+
+                // 得点を追加する
+                GameManager gm = GameManager.FindObjectOfType<GameManager>();
+                if (gm)
+                {
+                    gm.AddScore(m_score);
+                }
+
                 Destroy(this.gameObject);       // そして自分も破棄する
             }
         }
